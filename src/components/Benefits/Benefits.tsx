@@ -1,12 +1,17 @@
 import type { ReactNode } from "react";
 import styles from "./Benefits.module.css";
 
+// Value anchor shown at the foot of each card: either what the benefit
+// costs outside the Club, or that it simply does not exist outside it.
+type Flag = { kind: "price"; value: string } | { kind: "exclusive" };
+
 type Benefit = {
   n: string;
   title: string;
   lines?: string[];
   bullets?: string[];
   footer?: string;
+  flag: Flag;
 };
 
 const BENEFITS: Benefit[] = [
@@ -14,6 +19,7 @@ const BENEFITS: Benefit[] = [
     n: "01",
     title:
       "One-on-one com André Mariga para falar sobre desenvolvimento pessoal, profissional ou qualquer tema de sua escolha.",
+    flag: { kind: "price", value: "R$ 3.500 a sessão" },
   },
   {
     n: "02",
@@ -24,19 +30,23 @@ const BENEFITS: Benefit[] = [
       "Alguns poucos chegam até a Faixa 7.",
       "Você será um deles?",
     ],
+    flag: { kind: "exclusive" },
   },
   {
     n: "03",
     title:
       "Acesso a uma comunidade para trocar experiências, criar conexões reais e fazer networking.",
+    flag: { kind: "exclusive" },
   },
   {
     n: "04",
     title: "Encontros ao vivo quinzenais em grupo com compartilhamento de conhecimento.",
+    flag: { kind: "exclusive" },
   },
   {
     n: "05",
     title: "Vídeos exclusivos do André Mariga.",
+    flag: { kind: "exclusive" },
   },
   {
     n: "06",
@@ -47,6 +57,7 @@ const BENEFITS: Benefit[] = [
       "Laboratório Profissional é um ambiente seleto e contínuo de desenvolvimento profissional.",
     ],
     footer: "Ambos com protocolos semanais, exercícios práticos e diagnóstico direto.",
+    flag: { kind: "price", value: "R$ 1.000/ano cada" },
   },
 ];
 
@@ -121,7 +132,8 @@ export function Benefits() {
         <header className={styles.head}>
           <h2 className={styles.title}>Benefícios de membro</h2>
           <p className={styles.subtitle}>
-            Essas sessões, conteúdos e eventos não estão disponíveis fora do Club.
+            Alguns desses benefícios, conteúdos e eventos são exclusivos e não estão disponíveis
+            fora do Club.
           </p>
         </header>
 
@@ -135,20 +147,33 @@ export function Benefits() {
                 <span className={styles.glyph}>{GLYPHS[b.n]}</span>
               </div>
 
-              <h3 className={styles.itemTitle}>{b.title}</h3>
-              {b.lines?.map((line, i) => (
-                <p key={i} className={styles.line}>
-                  {line}
-                </p>
-              ))}
-              {b.bullets ? (
-                <ul className={styles.bullets}>
-                  {b.bullets.map((bullet, i) => (
-                    <li key={i}>{bullet}</li>
-                  ))}
-                </ul>
-              ) : null}
-              {b.footer ? <p className={styles.footnote}>{b.footer}</p> : null}
+              <div className={styles.cardBody}>
+                <h3 className={styles.itemTitle}>{b.title}</h3>
+                {b.lines?.map((line, i) => (
+                  <p key={i} className={styles.line}>
+                    {line}
+                  </p>
+                ))}
+                {b.bullets ? (
+                  <ul className={styles.bullets}>
+                    {b.bullets.map((bullet, i) => (
+                      <li key={i}>{bullet}</li>
+                    ))}
+                  </ul>
+                ) : null}
+                {b.footer ? <p className={styles.footnote}>{b.footer}</p> : null}
+              </div>
+
+              <div className={styles.flag}>
+                {b.flag.kind === "price" ? (
+                  <>
+                    <span className={styles.flagLabel}>Fora do Club</span>
+                    <span className={styles.flagValue}>{b.flag.value}</span>
+                  </>
+                ) : (
+                  <span className={styles.flagExclusive}>Exclusivo do Club</span>
+                )}
+              </div>
             </li>
           ))}
         </ol>
