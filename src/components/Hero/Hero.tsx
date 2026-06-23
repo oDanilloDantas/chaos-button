@@ -1,17 +1,14 @@
-import { PRICING, formatPrice } from "@/lib/pricing";
+import { LorenzMark } from "../LorenzMark/LorenzMark";
 import { WaitlistCta } from "../WaitlistCta/WaitlistCta";
 import styles from "./Hero.module.css";
 
 export function Hero({ price }: { price: string }) {
-  const step = formatPrice(PRICING.step);
-
   return (
     <section className={styles.hero}>
       <div className={styles.inner}>
-        <div className={styles.brand}>
-          <span className={styles.mark} aria-hidden="true" />
-          <span className={styles.brandName}>Botão do Caos</span>
-        </div>
+        <LorenzMark className={styles.logo} />
+
+        <span className={styles.brandName}>Botão do Caos</span>
 
         <h1 className={styles.headline}>
           Você não precisa de mais um curso.
@@ -19,13 +16,12 @@ export function Hero({ price }: { price: string }) {
         </h1>
 
         <div className={styles.priceBlock}>
-          <span className={styles.priceTag}>Preço dinâmico</span>
           <p className={styles.price}>
             <span className={styles.priceValue}>{price}</span>
             <span className={styles.pricePer}>/mês</span>
           </p>
           <p className={styles.priceNote}>
-            <span className={styles.priceNoteLine}>O preço sobe {step} a cada novo membro.</span>
+            <span className={styles.priceNoteLine}>O preço aumenta a cada novo membro.</span>
             <span className={styles.priceNoteLine}>Entre agora e trave o seu para sempre.</span>
           </p>
         </div>
