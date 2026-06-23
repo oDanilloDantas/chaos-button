@@ -15,8 +15,13 @@
   background-image: radial-gradient(var(--dots) 1px, transparent 1px);
   background-size: 26px 26px;
   background-position: center;
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 38%, #000 0%, transparent 75%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 38%, #000 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 90% 70% at 50% 40%,
+    #000 0%,
+    #000 22%,
+    transparent 80%
+  );
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 0%, #000 22%, transparent 80%);
   pointer-events: none;
 }
 
