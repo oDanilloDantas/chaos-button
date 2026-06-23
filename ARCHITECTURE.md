@@ -21,10 +21,13 @@ src/
   app/
     layout.tsx            # fontes (Crimson Text + Inter), metadata/OG, GTM, provider de query params
     page.tsx              # landing (SSR do preço)
+    icon.svg              # favicon (Atrator de Lorenz)
+    opengraph-image.png   # imagem de compartilhamento (Atrator de Lorenz + nome)
     api/lead/route.ts     # proxy server-side → n8n
     termos|privacidade|reembolso/  # páginas legais (stub)
   components/
     Hero/ Benefits/ Footer/
+    LorenzMark/                    # marca do clube — Atrator de Lorenz animado
     WaitlistCta/ WaitlistModal/    # CTA e modal de lista de espera
     PhoneField/ CountryPicker/     # WhatsApp com DDI e validação
     QueryParamsProvider/ QueryPreservingLink/
