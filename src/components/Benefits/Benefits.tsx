@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { BenefitIllustration } from "./BenefitIllustration";
 import styles from "./Benefits.module.css";
 
 // Value anchor shown at the foot of each card: either what the benefit
@@ -61,13 +62,14 @@ const BENEFITS: Benefit[] = [
   },
 ];
 
-function Glyph({ children }: { children: ReactNode }) {
+// Larger line illustration shared frame: 56px, monoline, gold (currentColor).
+function Illustration({ children }: { children: ReactNode }) {
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox="0 0 56 56"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.4"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
@@ -77,51 +79,78 @@ function Glyph({ children }: { children: ReactNode }) {
   );
 }
 
-// Bespoke monoline glyphs — one per benefit, mapped to its meaning.
-const GLYPHS: Record<string, ReactNode> = {
-  // Conversation — the one-on-one call.
+// Bespoke animated line illustrations, one per benefit. Each line draws itself
+// on scroll-in (data-draw) with accent marks popping after (data-pop); on hover
+// each gets its own signature motion (data-typing/node/beat/play/bubble).
+const ILLUSTRATIONS: Record<string, ReactNode> = {
+  // 01 — a video call: a person on screen with a live dot that pulses on hover.
   "01": (
-    <Glyph>
-      <path d="M6 4h12a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-6l-5 4v-4H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" />
-      <path d="M7.5 8.5h9M7.5 11.5h5" />
-    </Glyph>
+    <Illustration>
+      <rect data-draw pathLength={1} x="10" y="12" width="36" height="32" rx="5" />
+      <circle data-draw pathLength={1} cx="25" cy="26" r="4.5" />
+      <path data-draw pathLength={1} d="M16 40c1-5.6 5-8.6 9-8.6s8 3 9 8.6" />
+      <circle data-pop data-live cx="39" cy="18" r="2" fill="currentColor" stroke="none" />
+    </Illustration>
   ),
-  // Waveform — the 100 audios.
+  // 02 — an equalizer whose bars rise as it enters, then dance on hover.
   "02": (
-    <Glyph>
-      <path d="M4 10.5v3M7.5 7.5v9M11 9.5v5M14 5.5v13M17.5 8.5v7M21 10.5v3" />
-    </Glyph>
+    <svg viewBox="0 0 56 56" aria-hidden="true">
+      <g className={styles.bars} fill="currentColor">
+        <rect x="5.5" y="19" width="3" height="18" rx="1.5" />
+        <rect x="12.5" y="13" width="3" height="30" rx="1.5" />
+        <rect x="19.5" y="7" width="3" height="42" rx="1.5" />
+        <rect x="26.5" y="16" width="3" height="24" rx="1.5" />
+        <rect x="33.5" y="10" width="3" height="36" rx="1.5" />
+        <rect x="40.5" y="18" width="3" height="20" rx="1.5" />
+        <rect x="47.5" y="14" width="3" height="28" rx="1.5" />
+      </g>
+    </svg>
   ),
-  // Connected nodes — the community.
+  // 03 — three nodes that connect, then pulse in sequence on hover.
   "03": (
-    <Glyph>
-      <circle cx="6" cy="7" r="2" />
-      <circle cx="18" cy="7" r="2" />
-      <circle cx="12" cy="17" r="2" />
-      <path d="M8 7h8M7.7 8.1 10.3 15.9M16.3 8.1 13.7 15.9" />
-    </Glyph>
+    <Illustration>
+      <path data-draw pathLength={1} d="M20.5 17H35.5M18 21 26 37M38 21 30 37" />
+      <circle data-pop data-node cx="16" cy="17" r="4.5" />
+      <circle data-pop data-node cx="40" cy="17" r="4.5" />
+      <circle data-pop data-node cx="28" cy="41" r="4.5" />
+    </Illustration>
   ),
-  // Calendar — the biweekly live meetings.
+  // 04 — a calendar whose marked date beats on hover.
   "04": (
-    <Glyph>
-      <rect x="4" y="5.5" width="16" height="14" rx="2" />
-      <path d="M4 9.5h16M8.5 3.5v4M15.5 3.5v4" />
-      <circle cx="12" cy="14" r="1.25" fill="currentColor" stroke="none" />
-    </Glyph>
+    <Illustration>
+      <rect data-draw pathLength={1} x="11" y="13" width="34" height="32" rx="4" />
+      <path data-draw pathLength={1} d="M11 22H45M20 9V16M36 9V16" />
+      <rect
+        data-pop
+        data-beat
+        x="25"
+        y="29"
+        width="6"
+        height="6"
+        rx="1.5"
+        fill="currentColor"
+        stroke="none"
+      />
+    </Illustration>
   ),
-  // Play in a frame — the exclusive videos.
+  // 05 — a framed play mark that pulses on hover.
   "05": (
-    <Glyph>
-      <rect x="3.5" y="5.5" width="17" height="13" rx="2" />
-      <path d="M10.4 9.2 14.9 12l-4.5 2.8Z" />
-    </Glyph>
+    <Illustration>
+      <rect data-draw pathLength={1} x="9" y="13" width="38" height="30" rx="5" />
+      <path data-pop data-play d="M24 22 34 28 24 34Z" fill="currentColor" stroke="none" />
+    </Illustration>
   ),
-  // Erlenmeyer flask — the Laboratories.
+  // 06 — an Erlenmeyer flask with a bubble that rises on hover.
   "06": (
-    <Glyph>
-      <path d="M9 3.5h6M10.5 3.5v5.6L6.2 16.6a1.5 1.5 0 0 0 1.3 2.3h9a1.5 1.5 0 0 0 1.3-2.3L13.5 9.1V3.5" />
-      <path d="M8 14.2h8" />
-    </Glyph>
+    <Illustration>
+      <path
+        data-draw
+        pathLength={1}
+        d="M21 9H35M24 9v12L13.5 39a3 3 0 0 0 2.6 4.6H39.9a3 3 0 0 0 2.6-4.6L32 21V9"
+      />
+      <path data-draw pathLength={1} d="M18 33H38" />
+      <circle data-bubble cx="28" cy="37" r="1.6" fill="currentColor" stroke="none" opacity="0" />
+    </Illustration>
   ),
 };
 
@@ -144,7 +173,7 @@ export function Benefits() {
                 <span className={styles.number} aria-hidden="true">
                   {b.n}
                 </span>
-                <span className={styles.glyph}>{GLYPHS[b.n]}</span>
+                <BenefitIllustration>{ILLUSTRATIONS[b.n]}</BenefitIllustration>
               </div>
 
               <div className={styles.cardBody}>

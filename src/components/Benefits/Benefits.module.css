@@ -11,7 +11,8 @@
 
 .head {
   max-width: 640px;
-  margin-bottom: clamp(40px, 6vw, 64px);
+  margin: 0 auto clamp(40px, 6vw, 64px);
+  text-align: center;
 }
 
 .title {
@@ -88,23 +89,274 @@
   font-variant-numeric: tabular-nums;
 }
 
-.glyph {
+/* Animated line illustrations -------------------------------------------- */
+
+.illustration {
+  display: block;
   color: var(--accent);
-  opacity: 0.5;
-  transition:
-    opacity 240ms ease,
-    transform 240ms ease;
+  opacity: 0.75;
+  transition: opacity 240ms ease;
 }
 
-.glyph svg {
-  width: 26px;
-  height: 26px;
+.illustration svg {
+  width: 56px;
+  height: 56px;
   display: block;
 }
 
-.item:hover .glyph {
+.item:hover .illustration {
   opacity: 1;
-  transform: translateY(-1px);
+}
+
+/* Entrance: lines draw themselves (default state, no JS, is fully drawn). */
+.armed [data-draw] {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.inView [data-draw] {
+  animation: drawStroke 720ms cubic-bezier(0.45, 0, 0.2, 1) forwards;
+}
+
+@keyframes drawStroke {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Entrance: accent marks pop in once the line has drawn. */
+.illustration [data-pop] {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.armed [data-pop] {
+  opacity: 0;
+}
+
+/* opacity:1 holds statically so hover animations (which only touch transform)
+   don't fall back to the armed opacity:0 when they replace the popIn animation. */
+.inView [data-pop] {
+  opacity: 1;
+  animation: popIn 420ms cubic-bezier(0.2, 0.7, 0.2, 1) 560ms both;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 02 — equalizer bars */
+.bars rect {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Armed (JS mounted, motion allowed): collapse before the card is in view. */
+.armed .bars rect {
+  transform: scaleY(0);
+}
+
+/* Draw on: bars rise, staggered left to right, and hold. */
+.inView .bars rect {
+  animation: barRise 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.inView .bars rect:nth-child(1) {
+  animation-delay: 0ms;
+}
+.inView .bars rect:nth-child(2) {
+  animation-delay: 70ms;
+}
+.inView .bars rect:nth-child(3) {
+  animation-delay: 140ms;
+}
+.inView .bars rect:nth-child(4) {
+  animation-delay: 210ms;
+}
+.inView .bars rect:nth-child(5) {
+  animation-delay: 280ms;
+}
+.inView .bars rect:nth-child(6) {
+  animation-delay: 350ms;
+}
+.inView .bars rect:nth-child(7) {
+  animation-delay: 420ms;
+}
+
+@keyframes barRise {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Hover — the equalizer plays: bars pulse out of phase. */
+.item:hover .bars rect {
+  animation: barEqualize 1.05s ease-in-out infinite;
+}
+.item:hover .bars rect:nth-child(1) {
+  animation-delay: -80ms;
+}
+.item:hover .bars rect:nth-child(2) {
+  animation-delay: -360ms;
+}
+.item:hover .bars rect:nth-child(3) {
+  animation-delay: -180ms;
+}
+.item:hover .bars rect:nth-child(4) {
+  animation-delay: -500ms;
+}
+.item:hover .bars rect:nth-child(5) {
+  animation-delay: -260ms;
+}
+.item:hover .bars rect:nth-child(6) {
+  animation-delay: -620ms;
+}
+.item:hover .bars rect:nth-child(7) {
+  animation-delay: -420ms;
+}
+
+@keyframes barEqualize {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.45);
+  }
+}
+
+/* 01 — the live indicator pulses, signalling an active call */
+.item:hover [data-live] {
+  animation: livePulse 1.4s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.78);
+  }
+}
+
+/* 03 — the network nodes pulse in sequence */
+.item:hover [data-node] {
+  animation: nodePulse 1.6s ease-in-out infinite;
+}
+.item:hover [data-node]:nth-of-type(2) {
+  animation-delay: 0.25s;
+}
+.item:hover [data-node]:nth-of-type(3) {
+  animation-delay: 0.5s;
+}
+
+@keyframes nodePulse {
+  0%,
+  60%,
+  100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.18);
+  }
+}
+
+/* 04 — the marked date beats */
+.item:hover [data-beat] {
+  animation: beat 1.3s ease-in-out infinite;
+}
+
+@keyframes beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.32);
+  }
+  40% {
+    transform: scale(0.96);
+  }
+  60% {
+    transform: scale(1.12);
+  }
+}
+
+/* 05 — the play mark pulses */
+.item:hover [data-play] {
+  animation: playPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes playPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.16);
+  }
+}
+
+/* 06 — a bubble rises through the flask */
+.item:hover [data-bubble] {
+  animation: bubbleRise 2.1s ease-in-out infinite;
+}
+
+@keyframes bubbleRise {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bars rect,
+  .item:hover .bars rect {
+    animation: none;
+    transform: scaleY(1);
+  }
+  .illustration [data-draw] {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  .illustration [data-pop] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .item:hover [data-live],
+  .item:hover [data-node],
+  .item:hover [data-beat],
+  .item:hover [data-play],
+  .item:hover [data-bubble] {
+    animation: none !important;
+  }
 }
 
 .itemTitle {
