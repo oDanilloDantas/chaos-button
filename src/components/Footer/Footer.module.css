@@ -1,0 +1,49 @@
+.footer {
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+.copy {
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.linkItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sep {
+  width: 1px;
+  height: 12px;
+  background: var(--border-strong);
+}
+
+.link {
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: color 160ms ease;
+}
+
+.link:hover {
+  color: var(--accent);
+}

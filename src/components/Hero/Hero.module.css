@@ -1,0 +1,153 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 80px 24px 56px;
+  overflow: hidden;
+}
+
+.aura {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  z-index: -1;
+  width: min(900px, 120vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 780px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.mark {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff, var(--accent) 45%, var(--accent-strong));
+  box-shadow: 0 0 18px var(--accent-glow);
+}
+
+.brandName {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: clamp(34px, 6vw, 60px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  color: var(--text);
+}
+
+.headlineAccent {
+  color: var(--accent);
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0 36px;
+}
+
+.priceTag {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(124, 196, 255, 0.22);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 16px;
+}
+
+.priceValue {
+  font-size: clamp(40px, 8vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+
+.pricePer {
+  font-size: 20px;
+  color: var(--text-muted);
+}
+
+.priceNote {
+  max-width: 420px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.scroll {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 56px;
+  color: var(--text-faint);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  transition: color 200ms ease;
+}
+
+.scroll:hover {
+  color: var(--text-muted);
+}
+
+.scroll svg {
+  width: 16px;
+  height: 16px;
+  animation: nudge 2.4s ease-in-out infinite;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll svg {
+    animation: none;
+  }
+}
