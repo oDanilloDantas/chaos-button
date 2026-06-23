@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "chaos-button",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-09-23",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/assets"
+  },
+  "observability": {
+    "enabled": true
+  }
+  // Custom domain (caos.andremariga.com.br) is configured as a Custom Domain in the
+  // Cloudflare dashboard. The *.workers.dev URL stays enabled via "workers_dev": true.
+  // Secrets (e.g. N8N_CAPTURE_URL) are set with `wrangler secret put`, never here.
+}
