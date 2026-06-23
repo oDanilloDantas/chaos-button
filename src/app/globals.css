@@ -10,18 +10,18 @@
   --text-muted: #9b988f;
   --text-faint: #6e6b64;
 
-  /* Accent — muted, flat light blue (no gradients, no glow) */
-  --accent: #aac9e4;
-  --accent-strong: #8fb4d6;
-  --accent-hover: #c2dbf0;
+  /* Accent — muted antique gold (no gradients, no glow) */
+  --accent: #c5ad83;
+  --accent-strong: #ad9568;
+  --accent-hover: #d8c49b;
   --accent-contrast: #0a0a0b;
-  --accent-soft: rgba(170, 201, 228, 0.1);
+  --accent-soft: rgba(197, 173, 131, 0.1);
 
   /* Hero dot texture */
   --dots: rgba(255, 255, 255, 0.05);
 
   /* Lines */
-  --border: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.1);
   --border-strong: rgba(255, 255, 255, 0.16);
 
   /* Feedback */
@@ -30,10 +30,13 @@
 
   /* Layout */
   --maxw: 1200px;
+  --radius-sm: 6px;
   --radius: 14px;
   --radius-lg: 22px;
 
   --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-serif:
+    var(--font-crimson), "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 }
 
 *,
@@ -67,8 +70,9 @@ h1,
 h2,
 h3,
 h4 {
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  font-family: var(--font-serif);
+  line-height: 1.1;
+  letter-spacing: -0.005em;
   font-weight: 600;
   text-wrap: balance;
 }

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Crimson_Text } from "next/font/google";
 import { QueryParamsProvider } from "@/components/QueryParamsProvider/QueryParamsProvider";
 import { Analytics, GtmNoScript } from "@/components/Analytics/Analytics";
 import "./globals.css";
@@ -8,6 +8,14 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+});
+
+const crimson = Crimson_Text({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-crimson",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://caos.andremariga.com.br";
@@ -34,7 +42,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={inter.variable}>
+    <html lang="pt-BR" className={`${inter.variable} ${crimson.variable}`}>
       <body>
         <GtmNoScript />
         <QueryParamsProvider>{children}</QueryParamsProvider>

@@ -186,7 +186,7 @@
   border-radius: 50%;
   background: var(--accent-soft);
   color: var(--accent);
-  box-shadow: 0 0 0 1px rgba(170, 201, 228, 0.25);
+  box-shadow: 0 0 0 1px rgba(197, 173, 131, 0.25);
 }
 
 .successMark svg {
