@@ -1,0 +1,16 @@
+/* Particles flow along the attractor — one dash period per loop, seamless. */
+.flow {
+  animation: lorenzFlow 1.4s linear infinite;
+}
+
+@keyframes lorenzFlow {
+  to {
+    stroke-dashoffset: -2.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow {
+    animation: none;
+  }
+}
