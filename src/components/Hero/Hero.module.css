@@ -67,7 +67,7 @@
 
 .headlineAccent {
   font-style: italic;
-  color: var(--text);
+  color: var(--accent);
 }
 
 .priceBlock {
