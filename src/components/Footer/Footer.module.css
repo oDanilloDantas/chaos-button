@@ -1,17 +1,41 @@
 .footer {
-  padding: 40px 24px;
+  padding: clamp(72px, 11vh, 104px) 24px clamp(36px, 5vh, 52px);
   border-top: 1px solid var(--border);
   background: var(--bg-elevated);
 }
 
 .inner {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+/* André's signature — a personal sign-off closing the page. */
+.signature {
+  display: block;
+  width: clamp(180px, 34vw, 220px);
+  aspect-ratio: 50.37 / 10.42;
+  background-color: #fff;
+  -webkit-mask: url(/assinatura-andre-mariga.svg) center / contain no-repeat;
+  mask: url(/assinatura-andre-mariga.svg) center / contain no-repeat;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin: clamp(40px, 6vh, 56px) 0 28px;
+}
+
+.meta {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  max-width: var(--maxw);
-  margin: 0 auto;
+  width: 100%;
 }
 
 .copy {
@@ -46,4 +70,12 @@
 
 .link:hover {
   color: var(--accent);
+}
+
+@media (max-width: 560px) {
+  .meta {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
 }

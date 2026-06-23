@@ -13,17 +13,23 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
-        <p className={styles.copy}>© {year} André Mariga. Todos os direitos reservados.</p>
-        <nav className={styles.links} aria-label="Links legais">
-          {LEGAL_LINKS.map((link, i) => (
-            <span key={link.href} className={styles.linkItem}>
-              {i > 0 ? <span className={styles.sep} aria-hidden="true" /> : null}
-              <QueryPreservingLink href={link.href} className={styles.link}>
-                {link.label}
-              </QueryPreservingLink>
-            </span>
-          ))}
-        </nav>
+        <span className={styles.signature} role="img" aria-label="André Mariga" />
+
+        <span className={styles.divider} aria-hidden="true" />
+
+        <div className={styles.meta}>
+          <p className={styles.copy}>© {year} André Mariga. Todos os direitos reservados.</p>
+          <nav className={styles.links} aria-label="Links legais">
+            {LEGAL_LINKS.map((link, i) => (
+              <span key={link.href} className={styles.linkItem}>
+                {i > 0 ? <span className={styles.sep} aria-hidden="true" /> : null}
+                <QueryPreservingLink href={link.href} className={styles.link}>
+                  {link.label}
+                </QueryPreservingLink>
+              </span>
+            ))}
+          </nav>
+        </div>
       </div>
     </footer>
   );
