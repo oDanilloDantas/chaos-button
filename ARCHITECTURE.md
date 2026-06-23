@@ -7,7 +7,7 @@ Landing de conversão do clube **Botão do Caos**. Fase atual: captação de lea
 
 - **Next.js (App Router) + React + TypeScript strict**
 - **Cloudflare Workers** via **`@opennextjs/cloudflare`** + `wrangler`
-- **CSS Modules** + design tokens (tema dark-first), fonte **Inter** (`next/font`)
+- **CSS Modules** + design tokens (tema dark-first); tipografia **Crimson Text** (serif, títulos) + **Inter** (corpo) via `next/font`
 - **libphonenumber-js** (telefone) e **zod** (validação cliente + servidor)
 - **GTM** + **Cloudflare Web Analytics**
 - **Vitest** para testes
@@ -19,7 +19,7 @@ Decisões registradas em [`docs/decisions`](docs/decisions).
 ```
 src/
   app/
-    layout.tsx            # Inter, metadata/OG, GTM, provider de query params
+    layout.tsx            # fontes (Crimson Text + Inter), metadata/OG, GTM, provider de query params
     page.tsx              # landing (SSR do preço)
     api/lead/route.ts     # proxy server-side → n8n
     termos|privacidade|reembolso/  # páginas legais (stub)
