@@ -10,7 +10,7 @@
     "directory": ".open-next/assets",
   },
   "observability": {
-    "enabled": true,
+    "enabled": false,
   },
   // Custom domain (caos.andremariga.com.br) is configured as a Custom Domain in the
   // Cloudflare dashboard. The *.workers.dev URL stays enabled via "workers_dev": true.
