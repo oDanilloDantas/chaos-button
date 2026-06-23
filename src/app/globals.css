@@ -1,21 +1,24 @@
 :root {
   /* Surfaces — black focus, near-black base */
-  --bg: #060708;
-  --bg-elevated: #0c0e12;
-  --surface: #101319;
-  --surface-hover: #161a22;
+  --bg: #0a0a0b;
+  --bg-elevated: #100f12;
+  --surface: #151418;
+  --surface-hover: #1c1b20;
 
-  /* Text */
-  --text: #f4f6fa;
-  --text-muted: #9aa0ac;
-  --text-faint: #6b7280;
+  /* Text — warm off-white */
+  --text: #ededea;
+  --text-muted: #9b988f;
+  --text-faint: #6e6b64;
 
-  /* Accent — light blue */
-  --accent: #7cc4ff;
-  --accent-strong: #4aa8ff;
-  --accent-contrast: #04121f;
-  --accent-soft: rgba(124, 196, 255, 0.12);
-  --accent-glow: rgba(124, 196, 255, 0.35);
+  /* Accent — muted, flat light blue (no gradients, no glow) */
+  --accent: #aac9e4;
+  --accent-strong: #8fb4d6;
+  --accent-hover: #c2dbf0;
+  --accent-contrast: #0a0a0b;
+  --accent-soft: rgba(170, 201, 228, 0.1);
+
+  /* Hero dot texture */
+  --dots: rgba(255, 255, 255, 0.05);
 
   /* Lines */
   --border: rgba(255, 255, 255, 0.08);

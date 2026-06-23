@@ -60,7 +60,7 @@ export function Benefits() {
           </p>
         </header>
 
-        <ol className={styles.list}>
+        <ol className={styles.grid}>
           {BENEFITS.map((b) => (
             <li key={b.n} className={styles.item}>
               <span className={styles.number} aria-hidden="true">

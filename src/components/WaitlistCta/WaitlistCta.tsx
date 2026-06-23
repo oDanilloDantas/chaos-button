@@ -16,8 +16,7 @@ export function WaitlistCta({ label }: { label: string }) {
   return (
     <>
       <button type="button" className={styles.cta} onClick={openModal}>
-        <span className={styles.aura} aria-hidden="true" />
-        <span className={styles.label}>{label}</span>
+        {label}
       </button>
       {open ? <WaitlistModal onClose={() => setOpen(false)} /> : null}
     </>

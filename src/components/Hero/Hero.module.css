@@ -1,25 +1,14 @@
 .hero {
   position: relative;
-  isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100dvh;
   padding: 80px 24px 56px;
-  overflow: hidden;
-}
-
-.aura {
-  position: absolute;
-  top: 38%;
-  left: 50%;
-  z-index: -1;
-  width: min(900px, 120vw);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
-  opacity: 0.5;
-  pointer-events: none;
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--dots) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: center;
 }
 
 .inner {
@@ -38,17 +27,16 @@
 }
 
 .mark {
-  width: 14px;
-  height: 14px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #ffffff, var(--accent) 45%, var(--accent-strong));
-  box-shadow: 0 0 18px var(--accent-glow);
+  background: var(--accent);
 }
 
 .brandName {
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -79,7 +67,7 @@
   padding: 5px 12px;
   border-radius: 999px;
   background: var(--accent-soft);
-  border: 1px solid rgba(124, 196, 255, 0.22);
+  border: 1px solid rgba(170, 201, 228, 0.22);
   color: var(--accent);
   font-size: 12px;
   font-weight: 500;

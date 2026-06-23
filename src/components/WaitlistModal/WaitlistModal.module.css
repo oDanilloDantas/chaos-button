@@ -131,21 +131,20 @@
   padding: 15px 20px;
   border: 0;
   border-radius: 14px;
-  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+  background: var(--accent);
   color: var(--accent-contrast);
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  box-shadow: 0 8px 28px var(--accent-glow);
   transition:
+    background 160ms ease,
     transform 160ms ease,
-    box-shadow 160ms ease,
     opacity 160ms ease;
 }
 
 .submit:hover:not(:disabled) {
+  background: var(--accent-hover);
   transform: translateY(-1px);
-  box-shadow: 0 12px 36px var(--accent-glow);
 }
 
 .submit:active:not(:disabled) {
@@ -187,7 +186,7 @@
   border-radius: 50%;
   background: var(--accent-soft);
   color: var(--accent);
-  box-shadow: 0 0 0 1px rgba(124, 196, 255, 0.25);
+  box-shadow: 0 0 0 1px rgba(170, 201, 228, 0.25);
 }
 
 .successMark svg {

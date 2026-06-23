@@ -7,8 +7,6 @@ export function Hero({ price }: { price: string }) {
 
   return (
     <section className={styles.hero}>
-      <div className={styles.aura} aria-hidden="true" />
-
       <div className={styles.inner}>
         <div className={styles.brand}>
           <span className={styles.mark} aria-hidden="true" />
