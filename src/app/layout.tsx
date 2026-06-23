@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { QueryParamsProvider } from "@/components/QueryParamsProvider/QueryParamsProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -35,7 +36,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR" className={inter.variable}>
-      <body>{children}</body>
+      <body>
+        <QueryParamsProvider>{children}</QueryParamsProvider>
+      </body>
     </html>
   );
 }
