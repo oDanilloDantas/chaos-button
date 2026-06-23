@@ -2,13 +2,7 @@ import next from "eslint-config-next";
 
 const eslintConfig = [
   {
-    ignores: [
-      ".next/**",
-      ".open-next/**",
-      ".wrangler/**",
-      "coverage/**",
-      "node_modules/**",
-    ],
+    ignores: [".next/**", ".open-next/**", ".wrangler/**", "coverage/**", "node_modules/**"],
   },
   ...next,
 ];

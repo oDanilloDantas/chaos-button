@@ -1,10 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import {
-  buildHref,
-  persistParams,
-  readPersistedParams,
-  resolveTrackedParams,
-} from "./queryParams";
+import { buildHref, persistParams, readPersistedParams, resolveTrackedParams } from "./queryParams";
 
 function makeStorage(): Storage {
   const map = new Map<string, string>();

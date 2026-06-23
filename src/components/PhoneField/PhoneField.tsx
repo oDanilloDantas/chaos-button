@@ -44,12 +44,7 @@ export function PhoneField({ id, country, value, onCountryChange, onChange, erro
             {current?.flag}
           </span>
           <span className={styles.code}>+{current?.dialCode}</span>
-          <svg
-            className={styles.chevron}
-            viewBox="0 0 12 12"
-            fill="none"
-            aria-hidden="true"
-          >
+          <svg className={styles.chevron} viewBox="0 0 12 12" fill="none" aria-hidden="true">
             <path
               d="M3 4.5 6 7.5 9 4.5"
               stroke="currentColor"

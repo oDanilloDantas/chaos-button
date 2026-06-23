@@ -66,13 +66,13 @@ dataLayer.
 
 ## Variáveis de ambiente
 
-| Variável | Escopo | Descrição |
-| --- | --- | --- |
-| `N8N_CAPTURE_URL` | secret (Worker) | Webhook do n8n que recebe os leads |
-| `NEXT_PUBLIC_GTM_ID` | público | ID do container GTM (`GTM-XXXX`) |
-| `NEXT_PUBLIC_CF_BEACON_TOKEN` | público (opcional) | Token do Cloudflare Web Analytics |
-| `NEXT_PUBLIC_SITE_URL` | público | URL canônica (`https://caos.andremariga.com.br`) |
-| `PRICING_MEMBER_COUNT` | servidor (opcional) | Contagem atual (padrão `0`) |
+| Variável                      | Escopo              | Descrição                                        |
+| ----------------------------- | ------------------- | ------------------------------------------------ |
+| `N8N_CAPTURE_URL`             | secret (Worker)     | Webhook do n8n que recebe os leads               |
+| `NEXT_PUBLIC_GTM_ID`          | público             | ID do container GTM (`GTM-XXXX`)                 |
+| `NEXT_PUBLIC_CF_BEACON_TOKEN` | público (opcional)  | Token do Cloudflare Web Analytics                |
+| `NEXT_PUBLIC_SITE_URL`        | público             | URL canônica (`https://caos.andremariga.com.br`) |
+| `PRICING_MEMBER_COUNT`        | servidor (opcional) | Contagem atual (padrão `0`)                      |
 
 Localmente, copie `.dev.vars.example` para `.dev.vars`. Em produção, use
 `wrangler secret put N8N_CAPTURE_URL`.

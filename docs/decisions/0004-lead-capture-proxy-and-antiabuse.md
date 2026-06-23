@@ -16,6 +16,7 @@ payload ao n8n. O endpoint do n8n fica em um secret (`N8N_CAPTURE_URL`), nunca n
 bundle do cliente.
 
 Proteção do endpoint, sem widget de CAPTCHA (zero atrito):
+
 - **Same-origin**: o host do `Origin`/`Referer` precisa bater com o host da requisição.
 - **Honeypot**: campo oculto que, se preenchido, descarta o envio.
 - **Rate-limit**: janela fixa por IP no Worker (best-effort), complementado por regra

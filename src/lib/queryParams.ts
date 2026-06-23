@@ -56,9 +56,7 @@ export function resolveTrackedParams(
   search: string,
   storage?: Storage,
 ): Partial<Record<TrackedParam, string>> {
-  const out: Partial<Record<TrackedParam, string>> = storage
-    ? readPersistedParams(storage)
-    : {};
+  const out: Partial<Record<TrackedParam, string>> = storage ? readPersistedParams(storage) : {};
   const params = toSearchParams(search);
   for (const key of TRACKED_PARAMS) {
     const value = params.get(key);

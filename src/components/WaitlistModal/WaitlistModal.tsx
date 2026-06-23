@@ -4,18 +4,8 @@ import { type FormEvent, useEffect, useId, useRef, useState } from "react";
 import { type CountryCode } from "libphonenumber-js";
 import { DEFAULT_COUNTRY } from "@/config/countries";
 import { isValidPhone, toE164NoPlus } from "@/lib/phone";
-import {
-  ORIGIN,
-  PRODUCT,
-  buildLeadPayload,
-  leadFormSchema,
-  type LeadFormInput,
-} from "@/lib/lead";
-import {
-  TRACKED_PARAMS,
-  resolveTrackedParams,
-  type TrackedParam,
-} from "@/lib/queryParams";
+import { ORIGIN, PRODUCT, buildLeadPayload, leadFormSchema, type LeadFormInput } from "@/lib/lead";
+import { TRACKED_PARAMS, resolveTrackedParams, type TrackedParam } from "@/lib/queryParams";
 import { pushDataLayer } from "@/lib/analytics";
 import { PhoneField } from "../PhoneField/PhoneField";
 import styles from "./WaitlistModal.module.css";
@@ -164,8 +154,7 @@ export function WaitlistModal({ onClose }: { onClose: () => void }) {
               Você está na lista
             </h2>
             <p className={styles.subtitle}>
-              Seu lugar está reservado e o preço de entrada, garantido. Em breve falamos
-              com você.
+              Seu lugar está reservado e o preço de entrada, garantido. Em breve falamos com você.
             </p>
             <button type="button" className={styles.secondary} onClick={onClose}>
               Fechar
@@ -178,8 +167,8 @@ export function WaitlistModal({ onClose }: { onClose: () => void }) {
                 Entre na lista de espera
               </h2>
               <p className={styles.subtitle}>
-                Vagas limitadas. Garanta seu lugar e trave o preço de entrada antes do
-                próximo aumento.
+                Vagas limitadas. Garanta seu lugar e trave o preço de entrada antes do próximo
+                aumento.
               </p>
             </header>
 

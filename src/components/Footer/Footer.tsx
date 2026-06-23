@@ -13,9 +13,7 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
-        <p className={styles.copy}>
-          © {year} André Mariga. Todos os direitos reservados.
-        </p>
+        <p className={styles.copy}>© {year} André Mariga. Todos os direitos reservados.</p>
         <nav className={styles.links} aria-label="Links legais">
           {LEGAL_LINKS.map((link, i) => (
             <span key={link.href} className={styles.linkItem}>

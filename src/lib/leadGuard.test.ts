@@ -4,11 +4,7 @@ import { checkRateLimit, isSameOriginRequest } from "./leadGuard";
 describe("isSameOriginRequest", () => {
   it("accepts a matching Origin host", () => {
     expect(
-      isSameOriginRequest(
-        "https://caos.andremariga.com.br",
-        null,
-        "caos.andremariga.com.br",
-      ),
+      isSameOriginRequest("https://caos.andremariga.com.br", null, "caos.andremariga.com.br"),
     ).toBe(true);
   });
 
@@ -20,15 +16,15 @@ describe("isSameOriginRequest", () => {
   });
 
   it("rejects a foreign origin", () => {
-    expect(
-      isSameOriginRequest("https://evil.example", null, "caos.andremariga.com.br"),
-    ).toBe(false);
+    expect(isSameOriginRequest("https://evil.example", null, "caos.andremariga.com.br")).toBe(
+      false,
+    );
   });
 
   it("falls back to Referer when Origin is missing", () => {
-    expect(isSameOriginRequest(null, "https://caos.andremariga.com.br/", "caos.andremariga.com.br")).toBe(
-      true,
-    );
+    expect(
+      isSameOriginRequest(null, "https://caos.andremariga.com.br/", "caos.andremariga.com.br"),
+    ).toBe(true);
   });
 
   it("rejects when origin/referer or host is missing or malformed", () => {

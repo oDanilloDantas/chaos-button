@@ -14,15 +14,15 @@ npm run dev                      # http://localhost:3000
 
 ## Scripts
 
-| Comando | O que faz |
-| --- | --- |
-| `npm run dev` | Servidor de desenvolvimento |
-| `npm run build` | Build de produção (Next) |
-| `npm run preview` | Build OpenNext + Worker local (wrangler) |
-| `npm run deploy` | Build OpenNext + deploy na Cloudflare |
-| `npm run lint` | ESLint |
-| `npm run typecheck` | TypeScript sem emitir |
-| `npm test` | Testes (Vitest) |
+| Comando             | O que faz                                |
+| ------------------- | ---------------------------------------- |
+| `npm run dev`       | Servidor de desenvolvimento              |
+| `npm run build`     | Build de produção (Next)                 |
+| `npm run preview`   | Build OpenNext + Worker local (wrangler) |
+| `npm run deploy`    | Build OpenNext + deploy na Cloudflare    |
+| `npm run lint`      | ESLint                                   |
+| `npm run typecheck` | TypeScript sem emitir                    |
+| `npm test`          | Testes (Vitest)                          |
 
 ## Stack
 
