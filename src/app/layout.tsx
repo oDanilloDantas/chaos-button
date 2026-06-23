@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { QueryParamsProvider } from "@/components/QueryParamsProvider/QueryParamsProvider";
+import { Analytics, GtmNoScript } from "@/components/Analytics/Analytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -37,7 +38,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={inter.variable}>
       <body>
+        <GtmNoScript />
         <QueryParamsProvider>{children}</QueryParamsProvider>
+        <Analytics />
       </body>
     </html>
   );
