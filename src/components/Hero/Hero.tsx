@@ -25,7 +25,8 @@ export function Hero({ price }: { price: string }) {
             <span className={styles.pricePer}>/mês</span>
           </p>
           <p className={styles.priceNote}>
-            O preço sobe {step} a cada novo membro. Entre agora e trave o seu para sempre.
+            <span className={styles.priceNoteLine}>O preço sobe {step} a cada novo membro.</span>
+            <span className={styles.priceNoteLine}>Entre agora e trave o seu para sempre.</span>
           </p>
         </div>
 

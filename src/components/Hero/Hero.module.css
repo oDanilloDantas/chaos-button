@@ -112,11 +112,18 @@
 }
 
 .priceNote {
-  max-width: 420px;
+  max-width: 460px;
   margin-top: 12px;
   font-size: 14px;
   line-height: 1.55;
   color: var(--text-muted);
+}
+
+/* Each sentence is its own line: break between sentences by context,
+   within a sentence by available width. */
+.priceNoteLine {
+  display: block;
+  text-wrap: balance;
 }
 
 .scroll {
